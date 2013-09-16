@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Part 2</title>
+	<link rel="stylesheet" type="text/css" href="css/my.countdown.css">
+	<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="js/my.countdown.js"></script>
+	<script type="text/javascript">
+		$( document ).ready(function() {
+			var newYear = new Date();
+			newYear = new Date(newYear.getFullYear() + 1, 1 - 1, 1);
+			//setInterval(function() {
+				$('#counter').Countdown({endDate: newYear});
+			//}, 100);
+		});
+	</script>
+</head>
+<body>
+  	<div id="counter">Este es el countdown</div>
+</body>
+</html>
