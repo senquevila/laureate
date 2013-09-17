@@ -10,9 +10,12 @@
 		$( document ).ready(function() {
 			var newYear = new Date();
 			newYear = new Date(newYear.getFullYear() + 1, 1 - 1, 1);
-			//setInterval(function() {
-				$('#counter').Countdown({endDate: newYear});
-			//}, 100);
+			
+			$('#counter').Countdown({
+				endDate: newYear,
+				speed: 1000,
+			});
+			
 		});
 	</script>
 </head>

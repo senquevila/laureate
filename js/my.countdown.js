@@ -8,12 +8,11 @@ Minutes, seconds, milliseconds left. 3
 (function ($) {
 
 	$.fn.Countdown = function (userOptions) {
-		var options = {
-			steps: 60
+		var _defaults = {
+			speed: 1000
 		};
 
-		var _beginDate = new Date(),			
-			_multiple = new Array(1000, 60, 60, 24, 30);
+		var _options = $.extend(_defaults, userOptions);
 
 		var time = {
 			_months: 0,
@@ -24,43 +23,64 @@ Minutes, seconds, milliseconds left. 3
 			_miliseconds: 0,		
 		};
 
+		var _this = $(this);
+
 		var getFactor = function (index) {
 			var mult = 1;
+			var multiple = new Array(1000, 60, 60, 24, 30);
 
-			if (index > _multiple.length)
-				index = _multiple.length;
+			if (index > multiple.length)
+				index = multiple.length;
 
 			for (var i = 0; i < index; i++) {
-				mult = mult * _multiple[i];
+				mult = mult * multiple[i];
 			}
 
 			return mult;
 		};
 
-		var self = this;
+		this.each(function(){
+			var box = $(document.createElement('div')).addClass('countdown-box');
+			var divMonths = $(document.createElement('div')).addClass('countdown-values');
+			var divDays = $(document.createElement('div')).addClass('countdown-values');
+			var divHours = $(document.createElement('div')).addClass('countdown-values');
+			var divMinutes = $(document.createElement('div')).addClass('countdown-values');
+			var divSeconds = $(document.createElement('div')).addClass('countdown-values');
+			var divMiliseconds = $(document.createElement('div')).addClass('countdown-values');
 
-		return this.each(function()
-        {
-            var $this = $(this);
-            var it = $this;
-            //$this.onclick(function(){
-                self.start(it);
-            //});
-        });
+			divMonths.attr('id', 'countdown-months');
+			divDays.attr('id', 'countdown-days');
+			divHours.attr('id', 'countdown-hours');
+			divMinutes.attr('id', 'countdown-minutes');
+			divSeconds.attr('id', 'countdown-seconds');
+			divMiliseconds.attr('id', 'countdown-miliseconds');
 
-		var start = function ($this) {
-			setInterval(function() {
-				update($this);
-			}, 1000);
+			box.append(divMonths)
+				.append(divDays)
+				.append(divHours)
+				.append(divMinutes)
+				.append(divSeconds)
+				.append(divMiliseconds);
+
+			_this.append(box);
+
+			init(_this);
+		});
+
+		function init (_this) {
+			var beginDate = new Date();
+			var count = _options.endDate - beginDate;
+
+			setTimeout(function() {
+				update(_this, count);
+				init(_this);
+			}, _options.speed);
 		}
-
-		function update($this) {		
-			time._miliseconds = userOptions.endDate - _beginDate;
-
-			//alert(time._miliseconds);
-
-
-			time._months = Math.floor (time._miliseconds / getFactor(5));
+	
+		function update(obj, count) {		
+			time._miliseconds = count;
+		
+			time._months = Math.floor(time._miliseconds / getFactor(5));
 			time._miliseconds -= time._months * getFactor(5);
 
 			time._days = Math.floor(time._miliseconds / getFactor(4));
@@ -75,18 +95,14 @@ Minutes, seconds, milliseconds left. 3
 			time._seconds = Math.floor(time._miliseconds / getFactor(1));
 			time._miliseconds -= time._seconds * getFactor(1);
 
-			var elem = '<div id="countdown-wrapper">' + userOptions.endDate + '<br>' + _beginDate;
-			elem += '<div class="countdown-values">' + time._months + '<div class="countdown-titles">Months</div></div>';
-			elem += '<div class="countdown-values">' + time._days + '<div class="countdown-titles">Days</div></div>';
-			elem += '<div class="countdown-values">' + time._hours + '<div class="countdown-titles">Hours</div></div>';
-			elem += '<div class="countdown-values">' + time._minutes + '<div class="countdown-titles">Minutes</div></div>';
-			elem += '<div class="countdown-values">' + time._seconds + '<div class="countdown-titles">Seconds</div></div>';
-			elem += '<div class="countdown-values">' + time._miliseconds + '<div class="countdown-titles">Miliseconds</div></div></div>';
-
-			$this.html(elem);			
+ '<div class="countdown-titles">Months</div>'
+			obj.find('#countdown-months').html(time._months);
+			obj.find('#countdown-days').html(time._days);
+			obj.find('#countdown-hours').html(time._hours);
+			obj.find('#countdown-minutes').html(time._minutes);
+			obj.find('#countdown-seconds').html(time._seconds);
+			obj.find('#countdown-miliseconds').html(time._miliseconds);
 		}
-
-  		$.extend(options, userOptions);
 	};	
 
 }(jQuery));
