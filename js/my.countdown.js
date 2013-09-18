@@ -41,6 +41,7 @@ Minutes, seconds, milliseconds left. 3
 
 		this.each(function(){
 			var box = $(document.createElement('div')).addClass('countdown-box');
+			var box2 = $(document.createElement('div')).addClass('countdown-box');
 			var divMonths = $(document.createElement('div')).addClass('countdown-values');
 			var divDays = $(document.createElement('div')).addClass('countdown-values');
 			var divHours = $(document.createElement('div')).addClass('countdown-values');
@@ -48,7 +49,26 @@ Minutes, seconds, milliseconds left. 3
 			var divSeconds = $(document.createElement('div')).addClass('countdown-values');
 			var divMiliseconds = $(document.createElement('div')).addClass('countdown-values');
 
-			divMonths.attr('id', 'countdown-months');
+			var spanMonths = $(document.createElement('div'))
+				.addClass('countdown-titles')
+				.append('Months');
+			var spanDays = $(document.createElement('div'))
+				.addClass('countdown-titles')
+				.append('Days');
+			var spanHours = $(document.createElement('div'))
+				.addClass('countdown-titles')
+				.append('Hours');
+			var spanMinutes = $(document.createElement('div'))
+				.addClass('countdown-titles')
+				.append('Minutes');
+			var spanSeconds = $(document.createElement('div'))
+				.addClass('countdown-titles')
+				.append('Seconds');
+			var spanMiliseconds = $(document.createElement('div'))
+				.addClass('countdown-titles')
+				.append('Miliseconds');
+
+			divMonths.attr('id', 'countdown-months');				
 			divDays.attr('id', 'countdown-days');
 			divHours.attr('id', 'countdown-hours');
 			divMinutes.attr('id', 'countdown-minutes');
@@ -62,7 +82,15 @@ Minutes, seconds, milliseconds left. 3
 				.append(divSeconds)
 				.append(divMiliseconds);
 
+			box2.append(spanMonths)
+				.append(spanDays)
+				.append(spanHours)
+				.append(spanMinutes)
+				.append(spanSeconds)
+				.append(spanMiliseconds)
+
 			_this.append(box);
+			_this.append(box2);
 
 			init(_this);
 		});
@@ -95,7 +123,6 @@ Minutes, seconds, milliseconds left. 3
 			time._seconds = Math.floor(time._miliseconds / getFactor(1));
 			time._miliseconds -= time._seconds * getFactor(1);
 
- '<div class="countdown-titles">Months</div>'
 			obj.find('#countdown-months').html(time._months);
 			obj.find('#countdown-days').html(time._days);
 			obj.find('#countdown-hours').html(time._hours);

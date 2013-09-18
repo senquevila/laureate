@@ -1,34 +1,31 @@
 body {
-	font-family: "Segoe UI", "Tahoma", sans-serif;
+	font-family: "Segoe UI", sans-serif;
 }
 
 .countdown-box {
 	width: 372px;
-	height: 60px;	
-	border: 1px solid #c0c0c0;
+	height: 60px;		
+	text-align: center;
 }
 
 .countdown-titles {
-	position: relative;
-	top: 40px;
-	left: 0px;
+	display: inline-block;	
 	float: left;
-	font-size: 12px;
+	margin: -15px auto;				
+	height: 60px;
+	width: 60px;	
+	padding: 1px;	
+	font: 10px "Segoe UI", sans-serif;
 	font-weight: 200;
-	text-align: center;
 }
 
 .countdown-values {
-	display: block;
+	display: inline-block;
+	margin: 0 auto;	
 	float: left;
-	background-color: #fff;
-	/*top: 25px;*/
 	width: 60px;
 	height: 60px;
 	border: 1px solid #c0c0c0;
-	/*padding: 10px 10px 10px 10px;*/
-	border: 1px solid #c0c0c0;
-	font-weight: bold;
-	font-size: 150%;
-	text-align: center;
+	font: 20px/60px "Segoe UI", sans-serif;
+	font-weight: bold;	
 }
