@@ -3,7 +3,7 @@ body {
 }
 
 .countdown-box {
-	width: 372px;
+	width: 240px;
 	height: 60px;		
 	text-align: center;
 }
@@ -28,4 +28,8 @@ body {
 	border: 1px solid #c0c0c0;
 	font: 20px/60px "Segoe UI", sans-serif;
 	font-weight: bold;	
+}
+
+.hide {
+	display: none;
 }
