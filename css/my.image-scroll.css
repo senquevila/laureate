@@ -1,0 +1,28 @@
+.nav {
+	width: 100px;
+	height: 40px;	
+	background-color: #666;
+	border: 1px solid #666;	
+	text-align: center;	
+	font-weight: bold;
+}
+
+.nav:hover {
+	background-color: #c0c0c0;
+}
+
+.scroll {
+	width: 100px;
+	height: 30px;	
+	background-color: #c0c0c0;
+	border: 1px solid #666;
+	text-align: center;
+}
+
+.scroll:hover {
+	background-color: #ffffff;
+}
+
+.hide {
+	display: none;
+}
