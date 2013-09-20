@@ -5,8 +5,10 @@
 	<title>Part 2</title>
 	<link rel="stylesheet" type="text/css" href="css/my.countdown.css">
 	<link rel="stylesheet" type="text/css" href="css/my.image-scroll.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.nailthumb.1.1.min.css">
 	<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
-	<script type="text/javascript" src="js/my.countdown.js"></script>
+	<script type="text/javascript" src="js/my.countdown.js"></script
+	<script type="text/javascript" src="js/jquery.nailthumb.1.1.min.js"></script>	
 	<script type="text/javascript" src="js/my.image-scroll.js"></script>
 	<script type="text/javascript">
 		$( document ).ready(function() {
@@ -18,6 +20,8 @@
 				speed: 1000,
 			});
 
+			$('.thumb-container').nailthumb();
+
 			$('#gallery').ImageScroll({
 				items: 3
 			});
@@ -28,11 +32,11 @@
   	<div id="counter">Este es el countdown</div>
 
   	<div id="gallery">Mi Galeria
-  		<img src="images/pic1.jpg" title="pic1" alt="pic1">
-  		<img src="images/pic2.jpg" title="pic2" alt="pic2">
-  		<img src="images/pic3.jpg" title="pic3" alt="pic3">
-  		<img src="images/pic4.jpg" title="pic4" alt="pic4">
-  		<img src="images/pic5.jpg" title="pic5" alt="pic5">
+  		<img src="images/pic1.jpg" title="A sunset" alt="pic1">
+  		<img src="images/pic2.jpg" title="It's a rainny day" alt="pic2">
+  		<img src="images/pic3.jpg" title="You saw a valley" alt="pic3">
+  		<img src="images/pic4.jpg" title="This is an emergency" alt="pic4">
+  		<img src="images/pic5.jpg" title="It's cold out there" alt="pic5">
   	</div>  	
 </body>
 </html>

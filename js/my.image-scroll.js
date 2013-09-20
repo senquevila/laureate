@@ -22,10 +22,19 @@
 			images.each (function (i, e) {
 				var elem = $(e);				
 				var item = $('<div />');
+				var boxThumb = $('<div />');
+				var imgThumb = $('img');
+
 				_images[i] = elem;
+
 				item.attr('href', elem.attr('src'))
-					.attr('class', 'scroll')
+					.attr('class', 'ImageScroll')
 					.append(elem.attr('title') + '<br>');
+
+				imgThumb.attr('src', elem.attr('src'));
+
+				boxImg.attr('class', 'square-thumb')
+					.append(imgThumb);
 
 				if (i >= _options.items)
 					item.attr('class', 'hide');
