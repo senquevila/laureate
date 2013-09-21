@@ -14,14 +14,16 @@ Minutes, seconds, milliseconds left. 3
 
 		var _options = $.extend(_defaults, userOptions);
 
-		var time = {
-			_months: 0,
-			_days: 0,
-			_hours: 0,
-			_minutes: 0,
-			_seconds: 0,
-			_miliseconds: 0,		
+		var _times = {
+			months: 0,
+			days: 0,
+			hours: 0,
+			minutes: 0,
+			seconds: 0,
+			miliseconds: 0,		
 		};
+
+		var _datePart = new Array('months', 'days', 'hours', 'minutes', 'seconds', 'miliseconds');
 
 		var _this = $(this);
 
@@ -40,53 +42,22 @@ Minutes, seconds, milliseconds left. 3
 		};
 
 		this.each(function(){
-			var box = $('<div/>')
-				.attr('class', 'countdown-box');
-			var box2 = $('<div/>')
-				.attr('class', 'countdown-box');
-			var divMonths = $('<div/>')
-				.attr('id', 'countdown-months')
-				.attr('class', 'hide');
-			var divDays = $('<div/>')
-				.attr('id', 'countdown-days')
-				.attr('class', 'hide');
-			var divHours = $('<div/>')
-				.attr('id', 'countdown-hours')
-				.attr('class', 'hide');
-			var divMinutes = $('<div/>')
-				.attr('id', 'countdown-minutes')
-				.attr('class', 'hide');
-			var divSeconds = $('<div/>')
-				.attr('id', 'countdown-seconds')
-				.attr('class', 'hide');
-			var divMiliseconds = $('<div/>')
-				.attr('id', 'countdown-miliseconds')
-				.attr('class', 'hide');
+			var box = $('<div/>').attr('class', 'countdown-box');
+			var box2 = $('<div/>').attr('class', 'countdown-box');
+			
+			var divMonths = $('<div/>').attr('id', 'countdown-months');
+			var divDays = $('<div/>').attr('id', 'countdown-days');
+			var divHours = $('<div/>').attr('id', 'countdown-hours');
+			var divMinutes = $('<div/>').attr('id', 'countdown-minutes');
+			var divSeconds = $('<div/>').attr('id', 'countdown-seconds');
+			var divMiliseconds = $('<div/>').attr('id', 'countdown-miliseconds');
 
-			var spanMonths = $('<div/>')
-				.attr('id', 'countdown-title-months')
-				.attr('class', 'hide')
-				.append('Months');
-			var spanDays = $('<div/>')
-				.attr('id', 'countdown-title-days')
-				.attr('class', 'hide')
-				.append('Days');
-			var spanHours = $('<div/>')
-				.attr('id', 'countdown-title-hours')
-				.attr('class', 'hide')
-				.append('Hours');
-			var spanMinutes = $('<div/>')
-				.attr('id', 'countdown-title-minutes')
-				.attr('class', 'hide')
-				.append('Minutes');
-			var spanSeconds = $('<div/>')
-				.attr('id', 'countdown-title-seconds')
-				.attr('class', 'hide')
-				.append('Seconds');
-			var spanMiliseconds = $('<div/>')
-				.attr('id', 'countdown-title-miliseconds')
-				.attr('class', 'hide')
-				.append('Miliseconds');
+			var spanMonths = $('<div>Months<div/>').attr('id', 'countdown-title-months');
+			var spanDays = $('<div>Days<div/>').attr('id', 'countdown-title-days');
+			var spanHours = $('<div>Hours<div/>').attr('id', 'countdown-title-hours');
+			var spanMinutes = $('<div>Minutes<div/>').attr('id', 'countdown-title-minutes');
+			var spanSeconds = $('<div>Seconds<div/>').attr('id', 'countdown-title-seconds');
+			var spanMiliseconds = $('<div>Miliseconds<div/>').attr('id', 'countdown-title-miliseconds');
 
 			box.append(divMonths)
 				.append(divDays)
@@ -101,6 +72,12 @@ Minutes, seconds, milliseconds left. 3
 				.append(spanMinutes)
 				.append(spanSeconds)
 				.append(spanMiliseconds)
+
+			box.children().attr('class', 'countdown-values');			
+			box.children().hide();
+
+			box2.children().attr('class', 'countdown-titles');			
+			box2.children().hide();
 
 			_this.append(box);
 			_this.append(box2);
@@ -120,110 +97,73 @@ Minutes, seconds, milliseconds left. 3
 	
 		function update(obj, count) {
 			if (count <= 0) {
-				time._months = 0
-					._days = 0
-					._hours = 0
-					._minutes = 0
-					._seconds = 0
-					._miliseconds = 0;
+				_times.months = 0;
+				_times.days = 0;
+				_times.hours = 0;
+				_times.minutes = 0;
+				_times.seconds = 0;	
+				_times.miliseconds = 0;
 			}
 			else {
-				time._miliseconds = count;
+				_times.miliseconds = count;
 
-				time._months = Math.floor(time._miliseconds / getFactor(5));
-				time._miliseconds -= time._months * getFactor(5);
+				_times.months = Math.floor(_times.miliseconds / getFactor(5));
+				_times.miliseconds -= _times.months * getFactor(5);
 
-				time._days = Math.floor(time._miliseconds / getFactor(4));
-				time._miliseconds -= time._days * getFactor(4);
+				_times.days = Math.floor(_times.miliseconds / getFactor(4));
+				_times.miliseconds -= _times.days * getFactor(4);
 
-				time._hours = Math.floor(time._miliseconds / getFactor(3));
-				time._miliseconds -= time._hours * getFactor(3);
+				_times.hours = Math.floor(_times.miliseconds / getFactor(3));
+				_times.miliseconds -= _times.hours * getFactor(3);
 
-				time._minutes = Math.floor(time._miliseconds / getFactor(2));
-				time._miliseconds -= time._minutes * getFactor(2);
+				_times.minutes = Math.floor(_times.miliseconds / getFactor(2));
+				_times.miliseconds -= _times.minutes * getFactor(2);
 
-				time._seconds = Math.floor(time._miliseconds / getFactor(1));
-				time._miliseconds -= time._seconds * getFactor(1);
+				_times.seconds = Math.floor(_times.miliseconds / getFactor(1));
+				_times.miliseconds -= _times.seconds * getFactor(1);
 			}
 
-			obj.find('#countdown-months').html(time._months);
-			obj.find('#countdown-days').html(time._days);
-			obj.find('#countdown-hours').html(time._hours);
-			obj.find('#countdown-minutes').html(time._minutes);
-			obj.find('#countdown-seconds').html(time._seconds);
-			obj.find('#countdown-miliseconds').html(time._miliseconds);
+			obj.find('#countdown-months').html(_times.months);
+			obj.find('#countdown-days').html(_times.days);
+			obj.find('#countdown-hours').html(_times.hours);
+			obj.find('#countdown-minutes').html(_times.minutes);
+			obj.find('#countdown-seconds').html(_times.seconds);
+			obj.find('#countdown-miliseconds').html(_times.miliseconds);
 
-			showTime(obj);
+			show_times(obj);
 		}
 
-		function showTime(obj) {
-			// 0 => Month, days, hours             1...
-			// 1 => Days, hours, minutes           01..
-			// 2 => Hours, minutes, seconds        001.
-			// 3 => Minutes, seconds, miliseconds  0001
-			var show = -1;
+		function show_times(obj) {
+			var firstPart, lastPart;
 
-			if (time._months > 0) {
-				show = 0;
+			firstPart = 3;
 
-				obj.find('#countdown-months').attr('class', 'countdown-values');
-				obj.find('#countdown-title-months').attr('class', 'countdown-titles');
+			if (_times.months > 0)
+				firstPart = 0;
+			else if (_times.days > 0)
+				firstPart = 1;
+			else if (_times.hours > 0)
+				firstPart = 2;
 
-				obj.find('#countdown-days').attr('class', 'countdown-values');
-				obj.find('#countdown-title-days').attr('class', 'countdown-titles');				
+			lastPart = firstPart + 2;
+
+			$('.countdown-values').each(function(i, e) {
+				var elem = $(e);
 				
-				obj.find('#countdown-hours').attr('class', 'countdown-values');
-				obj.find('#countdown-title-hours').attr('class', 'countdown-titles');
-			}
-				
-			if (show == -1 && time._days > 0) {
-				show = 1;
+				if (i >= firstPart && i <= lastPart)
+					elem.show();
+				else
+					elem.hide();
+			});
 
-				obj.find('#countdown-days').attr('class', 'countdown-values');
-				obj.find('#countdown-title-days').attr('class', 'countdown-titles');				
-			
-				obj.find('#countdown-hours').attr('class', 'countdown-values');
-				obj.find('#countdown-title-hours').attr('class', 'countdown-titles');
+			$('.countdown-titles').each(function(i, e) {
+				var elem = $(e);
 
-				obj.find('#countdown-minutes').attr('class', 'countdown-values');				
-				obj.find('#countdown-title-minutes').attr('class', 'countdown-titles');
-
-				obj.find('#countdown-months').attr('class', 'hide');
-				obj.find('#countdown-title-months').attr('class', 'hide');
-
-			}
-				
-			if (show == -1 && time._hours > 0) {
-				show = 2;
-
-				obj.find('#countdown-hours').attr('class', 'countdown-values');
-				obj.find('#countdown-title-hours').attr('class', 'countdown-titles');
-
-				obj.find('#countdown-minutes').attr('class', 'countdown-values');				
-				obj.find('#countdown-title-minutes').attr('class', 'countdown-titles');
-
-				obj.find('#countdown-seconds').attr('class', 'countdown-values');
-				obj.find('#countdown-title-seconds').attr('class', 'countdown-titles');
-
-				obj.find('#countdown-days').attr('class', 'hide');
-				obj.find('#countdown-title-days').attr('class', 'hide');
-			}
-				
-			if (show == -1) {
-				show = 3;
-				
-				obj.find('#countdown-minutes').attr('class', 'countdown-values');				
-				obj.find('#countdown-title-minutes').attr('class', 'countdown-titles');
-
-				obj.find('#countdown-seconds').attr('class', 'countdown-values');
-				obj.find('#countdown-title-seconds').attr('class', 'countdown-titles');
-
-				obj.find('#countdown-miliseconds').attr('class', 'countdown-values');
-				obj.find('#countdown-title-miliseconds').attr('class', 'countdown-titles');
-
-				obj.find('#countdown-hours').attr('class', 'hide');
-				obj.find('#countdown-title-hours').attr('class', 'hide');
-			}
+				if (i >= firstPart && i <= lastPart)
+					elem.show();
+				else
+					elem.hide();
+			});
 		}
 	};	
 

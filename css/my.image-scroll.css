@@ -1,64 +1,66 @@
+body {
+	font-family: "Segoe UI", sans-serif;
+}
+
+#scroll-image {
+	width: 650px;
+	height: auto;
+	margin-left: 10px;
+	float: left;
+	padding: 5px 5px 5px 5px;
+	border: 1px solid #cccccc;
+	overflow: hidden;
+}
+
+	#scroll-image img {
+		width: 100%;
+	}
+
+#scroll-nav {
+	width: 400px;
+	height:auto;
+	float: left;
+}
+
+#up {
+	background: #666666 url('../images/nav-up.png') no-repeat center;
+}
+
+#down {
+	background: #666666 url('../images/nav-down.png') no-repeat center;
+}
+
 .nav {
 	width: 400px;
-	height: 40px;	
-	background-color: #666;
-	border: 1px solid #666;	
-	font: 12px/40px sans-serif;
-	text-align: center;	
-	font-weight: bold;
-	cursor: crosshair;
+	height: 30px;	
+	cursor:pointer; cursor: hand;
 }
 
 .nav:hover {
 	background-color: #c0c0c0;
 }
 
-.scroll {
-	width: 400px;
-	height: 60px;	
-	background-color: #c0c0c0;
-	border: 1px solid #666;
-	font: 14px / 60px sans-serif;
-	text-align: center;
-}
 
-.scroll:hover {
-	background-color: #ffffff;
-}
-
-.box-thumb {
+.thumb-box {
 	display: table;
-	height: 100px;
 	width:  400px;
+	height: 100px;	
 	left: 0px;
 	text-align: center;
+	cursor:pointer; cursor: hand;
 }
 
 .thumb {
 	float: left;
 }
 
-.text-thumb {
+.thumb-text {
 	margin: 0 auto;	
 	background-color: #c0c0c0; 
 	height: inherit;
-	font: 18px/60px sans-serif;
+	font: 18px/100px sans-serif;
 }
 
-.text-thumb:hover {
+.thumb-text:hover {
 	background-color: #cccccc;
-}
-
-.hide {
-	display: none;
-}
-
-.main-image {
-	margin: 0 auto;
-	width: 100px;
-	height: 100px;
-	background: url('/images/pic1.jpg') no-repeat center;	
-	float: left;
-	padding: 5px 5px 5px 5px;
-	border: 1px solid #cccccc;
 }
