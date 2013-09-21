@@ -6,6 +6,7 @@
 	font: 12px/40px sans-serif;
 	text-align: center;	
 	font-weight: bold;
+	cursor: crosshair;
 }
 
 .nav:hover {
@@ -25,11 +26,39 @@
 	background-color: #ffffff;
 }
 
+.box-thumb {
+	display: table;
+	height: 100px;
+	width:  400px;
+	left: 0px;
+	text-align: center;
+}
+
+.thumb {
+	float: left;
+}
+
+.text-thumb {
+	margin: 0 auto;	
+	background-color: #c0c0c0; 
+	height: inherit;
+	font: 18px/60px sans-serif;
+}
+
+.text-thumb:hover {
+	background-color: #cccccc;
+}
+
 .hide {
 	display: none;
 }
 
-.square-thumb {
-	width: 150px;
-	height: 150px;
+.main-image {
+	margin: 0 auto;
+	width: 100px;
+	height: 100px;
+	background: url('/images/pic1.jpg') no-repeat center;	
+	float: left;
+	padding: 5px 5px 5px 5px;
+	border: 1px solid #cccccc;
 }

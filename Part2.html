@@ -7,9 +7,9 @@
 	<link rel="stylesheet" type="text/css" href="css/my.image-scroll.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery.nailthumb.1.1.min.css">
 	<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
-	<script type="text/javascript" src="js/my.countdown.js"></script
-	<script type="text/javascript" src="js/jquery.nailthumb.1.1.min.js"></script>	
+	<script type="text/javascript" src="js/my.countdown.js"></script>
 	<script type="text/javascript" src="js/my.image-scroll.js"></script>
+	<script type="text/javascript" src="js/jquery.nailthumb.1.1.min.js"></script>	
 	<script type="text/javascript">
 		$( document ).ready(function() {
 			var newYear = new Date();
@@ -18,20 +18,20 @@
 			$('#counter').Countdown({
 				endDate: newYear,
 				speed: 1000,
-			});
-
-			$('.thumb-container').nailthumb();
+			});	
 
 			$('#gallery').ImageScroll({
 				items: 3
 			});
+
+			$('.thumb').nailthumb({width:100,height:100});
 		});
 	</script>
 </head>
 <body>
   	<div id="counter">Este es el countdown</div>
 
-  	<div id="gallery">Mi Galeria
+  	<div id="gallery">
   		<img src="images/pic1.jpg" title="A sunset" alt="pic1">
   		<img src="images/pic2.jpg" title="It's a rainny day" alt="pic2">
   		<img src="images/pic3.jpg" title="You saw a valley" alt="pic3">
