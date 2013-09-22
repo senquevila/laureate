@@ -1,0 +1,387 @@
+/*------INPUTS------*/
+
+.input-gradient {
+background-image: url('/images/extras/input-bg.jpg');
+height: 37px;
+border: solid 1px #DBDBDB;
+clear: both;
+margin-top: 10px;
+font-size: 16px;
+color: #666666;
+	transition: all 0.30s ease-in-out;
+	-webkit-transition: all 0.30s ease-in-out;
+ 	-moz-transition: all 0.30s ease-in-out;
+  	outline:none;
+	-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+padding: 0 10px 0 10px;
+width: 90%;
+}
+
+
+.input-gradient:focus {
+	box-shadow: 0 0 7px rgba(204, 71, 13, 1);
+	-webkit-box-shadow: 0 0 5px rgba(204, 71, 13, 1);
+	-moz-box-shadow: 0 0 5px rgba(204, 71, 13, 1);
+}
+
+
+input.orange-button { /* Real 'input' buttons */
+	margin: 0;
+	background-color: #C94811;
+	font-size: 16px;
+	color: #FFF;
+	background-image: none;
+	border: 0;
+	-webkit-border-radius: 8px;-moz-border-radius: 8px;border-radius: 8px;
+	width: auto;
+	padding: 12px;
+	cursor: pointer;
+}
+
+
+input.grey-button { 
+background-color: #C0C0C0;
+	margin: 0;
+	font-size: 16px;
+	color: #FFF;
+	background-image: none;
+	border: 0;
+	-webkit-border-radius: 8px;-moz-border-radius: 8px;border-radius: 8px;
+	width: auto;
+	padding: 12px;
+	cursor: pointer;
+
+}
+
+
+/*------FAKE BUTTONS (Styled Links)------*/
+
+
+.button {
+	background-color: #DA511F;
+/*	padding: 12px 12px 12px 35px;*/
+padding: 12px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+	color: #FFF !important;
+	text-decoration: none;
+/*	background-image: url('/images/extras/icon-register.png');
+	background-repeat:no-repeat;
+	background-position: 15px 15px;*/
+	margin-top: 15px;
+	clear: both;
+	height: 10px;
+	}
+	
+	
+.button:hover {
+	background-color: #C4491C;
+}
+
+	
+/* Defining the icon in every type of button */
+
+.button-registry {
+	background-image: url('/images/extras/icon-register.png');
+	}
+
+
+.button-close {
+	background-image: url('/images/extras/icon-close.png');
+	}
+
+
+.button-join {
+	background-image: url('/images/extras/icon-join.png');
+	}
+
+
+
+/* Disabled buttons */
+
+
+.button-inactive {
+	background-color: #999;
+	padding: 12px 12px 12px 35px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+	color: #FFF;
+	text-decoration: none;
+	background-image: url('/images/extras/icon-register.png');
+	background-repeat:no-repeat;
+	background-position: 15px 12px;
+	margin-top: 15px;
+	clear: both;
+	}
+
+
+/*------ACTION ICONS------*/
+
+a.icon-edit{ 
+	background-image: url('/images/extras/icon-edit.png');
+	margin-right: 10px;
+	text-indent: -500px;
+	width: 20px;
+	height: 20px;
+	display: block;
+}
+
+
+a.icon-delete{ 
+	background-image: url('/images/extras/icon-delete.png');
+	margin-right: 10px;
+	text-indent: -500px;
+	width: 20px;
+	height: 20px;
+	display: block;
+}
+
+
+a.icon-add { 
+	background-image: url('/images/extras/icon-add.png');
+	margin-right: 10px;
+	text-indent: -500px;
+	width: 20px;
+	height: 20px;
+	display: block;
+}
+
+a.icon-cancel { 
+	background-image: url('/images/extras/icon-delete.png');
+	margin-right: 10px;
+	text-indent: -500px;
+	width: 20px;
+	height: 20px;
+	display: block;
+}
+
+a.icon-share { 
+	background-image: url('/images/extras/icon-delete.png');
+	margin-right: 10px;
+	text-indent: -500px;
+	width: 20px;
+	height: 20px;
+	display: block;
+}
+
+
+/*------PAGINATION------*/
+
+.page-browsing {
+	clear: both;
+	margin: 30px auto 30px auto;
+	padding-top: 20px;
+	text-align: center;
+	width: 100%;
+	border-top: dotted 1px #ccc;
+	font-size: 20px;
+	}
+	
+.page-browsing .next-page {
+	width: 152px;
+	height: 41px;
+	display: block;
+	background-image: url('/images/extras/form-siguiente-button.gif');
+	text-indent: -5000px;
+	float: right;
+}
+
+
+.page-browsing .prev-page {
+	width: 152px;
+	height: 41px;
+	display: block;
+	background-image: url('/images/extras/form-siguiente-button.gif');
+	text-indent: -5000px;
+	float: left;
+}
+
+
+
+
+
+/*------Ajaxed Load more------*/
+
+.ajax-load-more {
+	width: 100%;
+	clear: both;
+	text-align: center;
+	}
+
+.ajax-load-more a {
+	display: block;
+	width: 195px;
+	height: 42px;
+	margin: auto;
+	background-image: url('/Style%20Library/Images/buttons/load-more-button.gif');
+	}
+
+
+.ajax-load-more a span {
+	display: none;
+	}
+
+
+.ajax-load-more a:hover {
+	background-position: 0 -43px;
+	}
+
+
+.ajax-load-more a.loading {
+	background-position: 0 -86px;
+	}
+
+.ajax-load-more a.disabled {
+	background-position: 0 -129px;
+	}
+
+
+
+
+
+
+/*------DATE PICKER (the jQuery Plugin)------*/
+
+.ui-datepicker {
+	background-color: #F4F4F4;
+	border: solid 1px #E1E1E1;
+	border-top: 0;
+	margin-top: -1px;
+	margin-left: 7px;
+	padding: 14px;
+	width: 230px;
+	background-image: url('/images/extras/calendar-bg.jpg');
+}
+
+
+.ui-datepicker-calendar {
+width: 100%;
+font-size: 12px;
+border-top: dotted 1px #ccc;
+}
+.ui-datepicker-calendar a {
+text-decoration: none;
+text-align: center;
+display: block;
+padding: 3px;
+width: auto;
+}
+
+.ui-datepicker-calendar a:hover {
+text-decoration: none;
+background-color: #ccc;
+}
+
+
+.ui-datepicker-calendar th {
+color: #999999;
+}
+
+th.ui-datepicker-week-end {
+color: #CC480E;
+}
+
+.ui-datepicker-title {
+font-size: 14px;
+color: #CC480E;
+font-weight: bolder;
+margin-bottom: 5px;
+text-align: center;
+}
+
+
+
+.ui-datepicker .ui-corner-all {
+font-size: 10px;
+}
+
+
+
+.ui-datepicker .ui-corner-all a {
+/*display: block;
+width: 8px;*/
+height: 14px;
+cursor: pointer;
+}
+
+.ui-datepicker-prev {
+float: left;
+background-image: url('/images/extras/calendar-prev.gif');
+text-indent: -2000px;
+}
+.ui-datepicker-next {
+float: right;
+background-image: url('/images/extras/calendar-next.gif');
+text-indent: -2000px;
+}
+
+
+
+
+/*------DIALOG BOXES (for colorbox)------*/
+
+
+#errormsg {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+padding: 20px;
+width: 320px;
+}
+
+#errormsg h4 {
+	color: #CC480E;
+	margin: 0 0 20px 0;
+}
+
+
+.hide {
+display:none;
+}
+
+
+/*------SLIDESHOW------*/
+
+.wt-rotator .thumbnails li,
+.wt-rotator .play-btn,
+.wt-rotator .prev-btn,
+.wt-rotator .next-btn{
+list-style:none;
+display:inline;
+float:left;
+margin-right:4px;
+overflow:hidden;
+width:24px;
+height:24px;
+line-height:24px;
+text-align:center;
+color:#84848C;
+background-color:#F0F0F0;
+border-radius: 11px;
+cursor:pointer;
+font-weight:bold;
+font-size:13px;
+opacity: 0.5;
+visibility: visible;
+}
+
+/*---COMMON LISTS---*/
+
+ul.commonlist  {
+	list-style: none;
+
+}
+
+ul.commonlist li {
+	background-image: url('/images/extras/icon-edit.png');
+	background-position: left;
+	background-repeat: no-repeat;
+/*	border-bottom: dotted 1px #CCCCCC,*/
+}
+
+
+ul.commonlist li a {
+	display: block;
+	padding: 0 0 0 21px;
+}

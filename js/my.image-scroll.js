@@ -45,26 +45,49 @@
 				boxThumb.append(divThumb)
 					.append(textThumb)					
 					.attr('id', 'scroll-' + i)
-					boxThumb.attr('class', 'thumb-box');
+					.attr('class', 'thumb-box')
+					.attr('tag', i);
 
 				if (i >= _options.items)
 					boxThumb.hide();
 
 				divNav.append(boxThumb);
 
-				_maxImage++;
-				
+				_maxImage++;				
 			});
 					
 			divNav.append(buttonDown);
 
 			_this.append(divNav);
 			_this.append(mainImage);
+
+			showImage(0);
+		}
+
+		function showImage(index) {
+			var obj = _this.find('#scroll-' + index + ' > div > img');			
+			var div = _this.find('#scroll-' + index + ' > div.thumb-text');
+			var img = $('<img/>');
+
+			for (var i = 0; i < _maxImage; i++) {
+				var elem = _this.find('#scroll-' + i + ' > div.thumb-text');
+				elem.css('color', '#000000').css('text-decoration', 'none');
+			}
+
+			div.css('color', '#ff0000').css('text-decoration', 'underline');
+
+			img.attr('src', obj.attr('src'))
+				.attr('title', obj.attr('title'))
+				.attr('alt', obj.attr('alt'));
+
+			$('#scroll-image').html(img);
 		}
 
 		$('#up').on('click', function () {
 			if (_actualImage > 0) {
 				_actualImage--;
+
+				showImage(_actualImage);
 
 				var first = _actualImage;
 				var last = _actualImage + _options.items;
@@ -78,24 +101,27 @@
 			if (_actualImage + _options.items < _maxImage) {				
 				var first = _actualImage;
 				var last = _actualImage + _options.items;
-				
-				$('#scroll-' + first).hide()
-				$('#scroll-' + last).show();
 
+				$('#scroll-' + first).hide();
+				$('#scroll-' + last).show();
+			}
+				
+			if (_actualImage < _maxImage - 1) {
 				_actualImage++;
+				showImage(_actualImage);
 			}
 		});
 
+		$('.nav').on('click', function() {
+			if (_actualImage == 0 || _actualImage == _maxImage - 1)
+				$(this).css('background-color', '#000000');
+			else			
+				$('.nav').css('background-color', '#666666');
+		});
+
 		$('.thumb-box').on('click', function() {
-			var id = $(this).attr('id');
-			var img = $('#' + id + ' > div > img');
-			var mainImage = $('<img/>');
-
-			mainImage.attr('src', img.attr('src'))
-				.attr('title', img.attr('title'))
-				.attr('alt', img.attr('alt'));
-
-			$('#scroll-image').html(mainImage);
+			var index = $(this).attr('tag');
+			showImage(index);
 		});
 
 	};

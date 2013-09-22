@@ -2,6 +2,10 @@ body {
 	font-family: "Segoe UI", sans-serif;
 }
 
+a {
+	text-decoration: none;
+}
+
 .countdown-box {
 	width: 240px;
 	height: 60px;		
